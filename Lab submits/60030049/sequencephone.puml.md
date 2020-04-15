@@ -1,3 +1,4 @@
+```puml
 @startuml 
 
 actor Contact
@@ -21,3 +22,4 @@ Telephone_PhoneContact->Telephone_PhoneRecive:จบการสนทนา \n�
 Recive->Telephone_PhoneRecive:จบการสนทนา \nวางหูโทรศัพท์
 Contact->Telephone_PhoneContact:จบการสนทนา \nวางหูโทรศัพท์
 @enduml
+```
