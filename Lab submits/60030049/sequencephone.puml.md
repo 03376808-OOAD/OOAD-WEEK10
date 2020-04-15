@@ -1,6 +1,6 @@
 ```puml
 @startuml 
-
+skinparam sequenceMessageAlign center
 actor Contact
 participant Telephone_PhoneContact
 participant Telephone_PhoneRecive
