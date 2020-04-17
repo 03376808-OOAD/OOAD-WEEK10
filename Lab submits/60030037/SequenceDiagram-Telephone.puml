@@ -1,0 +1,28 @@
+@startuml seqTelephone
+skinparam SequenceMessageAlignment center
+actor contact
+participant contactTelephone
+participant receiveTelephone
+actor receive
+
+contact->contactTelephone: ยกหูโทรศัพท์
+contactTelephone->contact: สัญญาณดัง\nพร้อมเชื่อมต่อ
+contact->contactTelephone: กดเบอร์โทรศัพท์
+contactTelephone->receiveTelephone: สัญญาณดัง\nกำลังทำการเชื่อมต่อ
+receiveTelephone->receiveTelephone: สัญญาณดัง 30 วินาที\nรอการตอบสนอง
+receive->receiveTelephone: ยกหูโทรศัพท์
+receiveTelephone->contactTelephone: [ยกหูก่อน 30 วินาที] เชื่อมต่อ
+contactTelephone->contact: สัญญาณเตือน\nทำการเชื่อมต่อแล้ว
+contact->contactTelephone: คุย
+contactTelephone->receiveTelephone: ส่งสัญญาณเสียง
+receiveTelephone->receive: ส่งสัญญาณเสียง
+receive->receiveTelephone: คุย
+receiveTelephone->contactTelephone: ส่งสัญญาณเสียง
+contactTelephone->contactTelephone: มีสายเรียกซ้อน
+contactTelephone->contact: ส่งสัญญาณเตือน\nมีสายเรียกซ้อน
+contact->contactTelephone: กดเปลี่ยนสาย
+contactTelephone->receiveTelephone: [มีการเปลี่ยนสาย]\nตัดการเชื่อมต่อ
+contactTelephone->receiveTelephone: [จบการสนทนา]\nตัดการเชื่อมต่อ
+receive->receiveTelephone: [จบการสนทนา]\nวางหู
+contact->contactTelephone: [จบการสนทนา]\nวางหู
+@enduml
