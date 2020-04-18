@@ -1,0 +1,26 @@
+@startuml sqDi 
+actor contact 
+participant contactTelephone
+participant riceiveTelephone
+actor receive
+
+contact->contactTelephone : ยกหูโทรศัพท์ขึ้น
+contact->contactTelephone : กดหมายเลขโทรศัพท์
+contactTelephone-> riceiveTelephone : มีเสียงสัญญาณกำลังเชื่อมต่อ
+riceiveTelephone->receive : เสียงโทรศัพท์ดัง 30 วินาที
+receive->riceiveTelephone : ยกหูโทรศัพท์ขึ้นรับ
+riceiveTelephone->contactTelephone : เชื่อมต่อสัญญาณ
+contact->contactTelephone : พูด
+contactTelephone->riceiveTelephone : ส่งสัญญาณคลื่นเสียง
+riceiveTelephone->receive : ส่งสัญญาณคลื่นเสียง
+receive->riceiveTelephone : พูด
+riceiveTelephone->contactTelephone : ส่งสัญญาณคลื่นเสียง
+contactTelephone->contact : ส่งสัญญาณคลื่นเสียง
+contactTelephone->contactTelephone : สายเรียกซ้อน
+contactTelephone->contact : สัญญาณเตือนมีสายเรียกซ้อน
+contact -> contactTelephone : กดสลับสาย
+contactTelephone -> riceiveTelephone : เปลี่ยนสายตัดการเชื่อมต่อ/ตัดการเชื่อมต่อ
+contactTelephone -> riceiveTelephone : เปลี่ยนสายตัดการเชื่อมต่อ/มีการเชื่อมต่อใหม่
+receive -> riceiveTelephone : จบการสนทนาเก่า/วางหู
+contact -> contactTelephone : จบการสนทนาใหม่/วางหู
+@enduml
