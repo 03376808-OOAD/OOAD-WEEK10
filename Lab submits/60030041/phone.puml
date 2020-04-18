@@ -1,0 +1,27 @@
+@startuml
+actor contact
+participant contactTelephone
+participant receiveTelephone
+actor receive
+
+contact->contactTelephone: ยกหูโทรศัพท์
+contactTelephone->contact: ไดอัลโทน พร้อมเชื่อมต่อ \n30วินาที
+contact->contactTelephone: กดหมายเลขโทรศัพท์
+contactTelephone->receiveTelephone: ทำการเชื่อมต่อ
+receiveTelephone->receive: ริงกิ้งโทนรอการรับสาย
+receive->receiveTelephone: ยกหูโทรศัพท์
+receiveTelephone->contactTelephone: เชื่อมต่อสำเร็จ
+contactTelephone->contact: สัญญาณเชื่อมต่อสำเร็จ
+contact->contactTelephone: คุย
+contactTelephone->receiveTelephone: สัญญาณเสียง
+receiveTelephone->receive: ส่งสัญญาณเสียง
+receive->receiveTelephone: คุย
+receiveTelephone->contactTelephone: ส่งสัญญาณเสียง
+contactTelephone->contactTelephone: สายเรียกซ้อน
+contact->contactTelephone: กดเปลี่ยนสาย
+contactTelephone->receiveTelephone:[มีการเปลี่ยนสาย]\nตัดการเชื่อมต่อ
+contactTelephone->receiveTelephone: [จบการสนทนา]\nตัดสัญญาณการเชื่อมต่อ
+receiveTelephone->receive: [จบการสนทนา]\n        วางหู
+contactTelephone->contact:[จบการสนทนา]\n        วางหู
+
+@enduml
