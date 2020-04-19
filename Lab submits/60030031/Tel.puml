@@ -1,0 +1,21 @@
+@startuml
+
+
+Contact -> ContactTelephone : ยกหู
+Contact -> ContactTelephone : กดบอร์
+ContactTelephone -> ContactReceive : สัญญาณดัง
+ContactReceive -> ContactReceive : สัญญาณดังไม่เกิน30วินาที
+Receive -> ContactReceive : ยกหู
+ContactReceive -> ContactTelephone : ยกหูก่อน30วินาที เชื่อมต่อ
+ContactTelephone -> Contact : ทำการเชื่อมต่อ
+Contact -> ContactTelephone : คุย
+ContactTelephone -> ContactReceive : รับสัญญาณเสียง
+Receive -> ContactReceive : คุย
+ContactReceive -> ContactTelephone : รับสัญญาณเสียง
+ContactTelephone ->  ContactTelephone : สายซ้อน
+Contact -> ContactTelephone : กดเปลี่ยนสาย
+ContactTelephone -> ContactReceive : มีการเปลี่ยนสายตัดการเชื่อมต่อ
+ContactTelephone -> ContactReceive :จบการสนทนาตัดการเชื่อมต่อ
+Contact -> ContactTelephone : วางหู
+Receive -> ContactReceive : วางหู
+@enduml
