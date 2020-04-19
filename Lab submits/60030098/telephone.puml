@@ -2,10 +2,12 @@
 actor Sender
 participant Telephone
 actor Receiver
+actor Sender2
 
-Sender -> Telephone : Input Number
+Sender -> Telephone : Input Number Receiver
 Telephone -> Sender : [Invalid Number] Number Not Found
 Telephone -> Receiver : [Valid Number]Call to Receiver
 Receiver -> Telephone : [Invalid Receiver] Can't call to receiver
-
+Sender2 -> Telephone : Input Number Receiver
+Telephone -> Sender2 : [Invalid Calling] This numberis on another line
 @enduml
