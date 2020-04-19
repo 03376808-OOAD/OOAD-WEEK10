@@ -1,4 +1,8 @@
 @startuml
+actor Sender
+participant Telephone
+actor Receiver
+
 Sender -> Telephone : Input Number
 Telephone -> Sender : [Invalid Number] Number Not Found
 Telephone -> Receiver : [Valid Number]Call to Receiver
