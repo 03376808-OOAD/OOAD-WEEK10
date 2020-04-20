@@ -1,7 +1,7 @@
-@startuml
+@startuml telephone1
 actor Sender
-participant SendersTelephone as ST
-participant ReceiversTelephone as RT
+participant "Sender's Telephone" as ST
+participant "Receiver's Telephone" as RT
 actor Receiver
 
 Sender -> ST : ยกหู
