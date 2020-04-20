@@ -1,13 +1,25 @@
 @startuml
 actor Sender
-participant Telephone
+participant SendersTelephone as ST
+participant ReceiversTelephone as RT
 actor Receiver
-actor Sender2
 
-Sender -> Telephone : Input Number Receiver
-Telephone -> Sender : [Invalid Number] Number Not Found
-Telephone -> Receiver : [Valid Number]Call to Receiver
-Receiver -> Telephone : [Invalid Receiver] Can't call to receiver
-Sender2 -> Telephone : Input Number Receiver
-Telephone -> Sender2 : [Invalid Calling] This numberis on another line
+Sender -> ST : ยกหู
+Sender -> ST : ใส่เบอร์
+ST -> RT : สัญญาณดัง
+RT -> RT : สัญญาณดังไม่เกิน 30 วินาที
+Receiver -> RT : ยกหู
+RT -> ST : [ยกหูก่อน 30 วินาที] เชื่อมต่อ
+ST -> Sender : ทำการเชื่อมต่อ
+Sender -> ST : คุย
+ST -> RT : รับสัญญาณเสียง
+Receiver -> RT : คุย
+RT -> ST : รับสัญญาณเสียง
+ST ->  ST : สายซ้อน
+Sender -> ST : กดเปลี่ยนสาย
+ST -> RT : มีการเปลี่ยนสายตัดการเชื่อมต่อ
+ST -> RT :จบการสนทนาตัดการเชื่อมต่อ
+Sender -> ST : วางหู
+Receiver -> RT : วางหู
+
 @enduml
