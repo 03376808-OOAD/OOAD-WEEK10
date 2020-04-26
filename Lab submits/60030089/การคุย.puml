@@ -1,0 +1,42 @@
+@startuml
+actor A #000000
+
+A -> Aphone: ยกหู
+A -> Aphone: กดเบอร์
+A -> Aphone: กดโทร
+Aphone -> Bphone: เชื่อมต่อสัญญาณ
+Aphone -> Bphone: สัญญาณเชื่อมต่อดัง
+actor B #GreenYellow
+Bphone -> B: เสียงริงโทรดังขึ้น(ไม่มีการตอบรับ) 
+Bphone -> Bphone: เกินเวลาที่กำหนด(30วินาที)
+Bphone -> Aphone: ตีสัญญาณกลับ
+Aphone -> A: ไม่มีการตอบรับจากเชขหมายที่ท่านเรียก
+B -> Bphone: ยกหู
+B -> Bphone: กดเบอร์
+B -> Bphone: กดโทร
+Bphone -> Aphone: เชื่อมต่อสัญญาณ
+Bphone -> Aphone: สัญญาณเชื่อมต่อดัง
+Aphone -> A: เสียงริงโทรดังขึ้น
+A -> Aphone: กดรับโทรศัพท์
+Aphone -> Bphone: ตอบรับสัญญาณ
+Bphone -> B:เสียงรับ
+A -> Aphone: กล่าว"สวัสดี คุณBมีเวลาว่างซัก2-3นาทีไหม"
+Aphone -> Bphone: ส่งคลื่นเสียง
+Bphone -> B: สวัสดี คุณBมีเวลาว่างซัก2-3นาทีไหม
+actor C #FFFFFF
+C -> Cphone: ยกหู
+C -> Cphone: กดเบอร์
+C -> Cphone: กดโทร
+Cphone -> Bphone: เชื่อมต่อสัญญาณ
+Cphone -> Bphone: สัญญาณเชื่อมต่อดัง
+Bphone -> B: เสียงริงโทรดังขึ้น(เสียงเรียกซ้อน)
+B -> Bphone: กดรับ
+Bphone -> Aphone: พักสาย
+Aphone -> A: เสียงพักสาย(เสียงเพลง)
+A -> Aphone: ตัดสาย
+Aphone -> Bphone: ตัดสัญญาณ
+Bphone -> B: จบการสนทนา
+B-> Bphone: เสียงพูดคุยกับC
+Bphone -> Cphone: เสียงพูดคุย
+Cphone -> C: เสียงพูดB
+@enduml
