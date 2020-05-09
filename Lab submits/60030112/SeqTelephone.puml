@@ -1,0 +1,25 @@
+@startuml 
+skinparam SequenceMessageAlignment center
+actor contact
+participant contactTelephone
+participant receiveTelephone
+actor receive
+
+contact->contactTelephone: Pick up the phone
+contact->contactTelephone: Dial phone number
+contactTelephone->receiveTelephone: Loud signal
+receiveTelephone->receiveTelephone: 30 seconds loud signal
+receive->receiveTelephone: Pick up the phone
+receiveTelephone->contactTelephone: Wait 30 seconds. Believe
+contact->contactTelephone: Talk
+contactTelephone->receiveTelephone: Give Sound signal
+receive->receiveTelephone: Talk
+receiveTelephone->contactTelephone: Give Sound signal
+contactTelephone->contactTelephone: Hidden call
+contactTelephone->contact: Call waiting alarm
+contact->contactTelephone: Press to change line
+contactTelephone->receiveTelephone: There is a change of lines\nDisconnect
+contactTelephone->receiveTelephone: End the conversation\nDisconnect
+receive->receiveTelephone: End the conversation\nhang up
+contact->contactTelephone: End the conversation\nhang up
+@enduml
